@@ -1,0 +1,93 @@
+.navbar{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 80px;
+
+}
+.logo{
+    width:250px;
+    height: 100px;
+    
+}
+.nav-menu{
+    display:flex;
+    align-items: center ;
+    list-style: none;
+    text-align: center;
+    gap:75px;
+    font-size:20px;
+   transition: background-color 0.3s ease;
+}
+.Home:hover,
+.About_me:hover,
+.Skills:hover,
+.Projects:hover,
+.Contact:hover
+{
+    cursor: pointer;
+    width: 85px;
+     padding: 0.5rem;
+     margin: 0 auto;
+     border-radius: 20px;
+     box-shadow: 0 0 10px rgba(0, 255, 255, 0.15),
+                 0 0 25px rgba(0, 255, 255, 0.08);
+
+}
+.nav-connect{
+    padding: 20px 20px ;
+    border-radius: 50px;
+    background: linear-gradient(to right, cyan, orange);
+    font-size: 22px;
+    cursor:pointer;
+    transition: 0.5s;
+}
+
+.nav-connect:hover{
+    transform:scale(1.05);
+}
+
+a {
+  text-decoration: none;
+  color:white
+}
+
+/* For Mobile-users */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    margin: 10px 20px;
+    align-items: flex-start;
+  }
+
+  .logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
+    align-items: flex-start;
+  }
+
+  .nav-connect {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 20px;
+  }
+
+  .Home:hover,
+  .About_me:hover,
+  .Skills:hover,
+  .Projects:hover,
+  .Contact:hover {
+    width: auto;
+    margin: 0;
+  
+  }
+}
