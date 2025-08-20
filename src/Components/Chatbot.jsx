@@ -69,7 +69,7 @@ const  Chatbot=()=> {
       {isOpen && (
      <div className="chat-container">
       <div className="chat-header">
-        <h2>DJS CodeAI Assistant</h2>
+        <h2>AI Assistant</h2>
         <p>AI Powered</p>
          <button onClick={toggleChat}>
               <AiOutlineClose size={24}/>
