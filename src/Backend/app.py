@@ -5,12 +5,12 @@ import google.generativeai as genai
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-# --- Load environment variables ---
+#Load environment variables 
 load_dotenv()  
 
-# --- Initialization ---
+# Initializating
 app = Flask(__name__)
-# CORS(app)  # This enables Cross-Origin Resource Sharing
+ 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 try:
@@ -19,8 +19,7 @@ except KeyError:
     print("Error: GOOGLE_API_KEY environment variable not set.")
     exit()
 
-# --- Gemini Model Configuration ---
-# Create the model
+#  Gemini Model Configuration 
 generation_config = {
     "temperature": 0.7,
     "top_p": 0.9,
@@ -37,13 +36,13 @@ model = genai.GenerativeModel(
 def home():
     return 'Chatbot Flask server is running!'
 
-# --- API Route ---
+
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
         user_message = request.json['message']
         
-        # Give the model context about its role
+  
         prompt = f"""
          You are the virtual assistant for Maulik Mhatre’s personal portfolio website. Your role is to help visitors navigate and learn more about the site’s sections: Home, About, Projects, Skills, and Contact.
 
@@ -65,7 +64,7 @@ def chat():
         User's question: {user_message}
         """
 
-        # Generate a response using the Gemini model
+        # response using the Gemini model
         response = model.generate_content(prompt)
         bot_reply = response.text
 
@@ -75,7 +74,6 @@ def chat():
         print(f"An error occurred: {e}")
         return jsonify({'error': 'Failed to process the request'}), 500
 
-# --- Run the App ---
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

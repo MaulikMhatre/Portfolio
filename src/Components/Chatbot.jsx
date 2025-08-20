@@ -24,9 +24,9 @@ const  Chatbot=()=> {
     // Add user message
     setMessages([...messages, { text: input, sender: 'user' }]);
 
-    // Clear input + refocus
+   
     setInput('');
-    // Call backend API
+    // Call backend api
     try {
       const response = await fetch('http://127.0.0.1:5000/chat', {
         method: 'POST',
@@ -65,7 +65,7 @@ const  Chatbot=()=> {
           <MdChatBubbleOutline size={24} color='black' />
       </button>
 
-      {/* Chatbot window */}
+     
       {isOpen && (
      <div className="chat-container">
       <div className="chat-header">
@@ -76,7 +76,7 @@ const  Chatbot=()=> {
          </button>
       </div>
 
-        {/* User and Bot message */}
+       
       <div className="chat-window">
   {messages.map((msg, idx) => (
     <div key={idx} className={`message-row ${msg.sender}`}>
@@ -99,7 +99,7 @@ const  Chatbot=()=> {
   ))}
 </div>
 
-        {/* User message input */}
+      
       <form className="chat-input-form" onSubmit={sendMessage}>
         <input
           id="user-input"
